@@ -10,6 +10,7 @@ use sqlx::SqlitePool;
 use sqlx::sqlite::SqliteConnectOptions;
 use std::{collections::HashMap, net::SocketAddr, str::FromStr};
 use tower_http::cors::{Any, CorsLayer};
+use http::HeaderValue;
 
 #[derive(Deserialize)]
 struct GetParams {
@@ -180,7 +181,7 @@ async fn main() {
     sqlx::migrate!().run(&pool).await.expect("failed to run migrations");
 
     let cors = CorsLayer::new()
-        .allow_origin(Any)
+        .allow_origin("https://smarniw.com".parse::<HeaderValue>().unwrap())
         .allow_methods(Any)
         .allow_headers(Any);
 
