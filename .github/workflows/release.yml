@@ -29,3 +29,6 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/swarnimcodes/reactions-for-blog:latest
+
+      - name: Trigger Dokploy deployment
+        run: curl -s "${{ secrets.DOKPLOY_WEBHOOK_URL }}"
