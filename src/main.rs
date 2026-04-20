@@ -24,7 +24,7 @@ struct PostBody {
     reacted: bool,
 }
 
-const DEFAULT_EMOJIS: &[&str] = &["👍", "❤️", "🔥", "👀", "😂"];
+const DEFAULT_EMOJIS: &[&str] = &["👍", "👎", "❤️", "🔥", "👀", "😂"];
 
 fn hash_ip(ip: &str) -> String {
     let mut hasher = Sha256::new();
